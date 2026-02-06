@@ -82,23 +82,18 @@
 
 /* hbe button in post page */
 .hbe-button {
-	width: 130px;
 	height: 40px;
-	background: linear-gradient(to bottom, var(--blue) 0%, var(--sapphire) 100%);
+	background: var(--lavender);
 	border: none;
 	border-radius: 5px;
 	position: relative;
-	border-bottom: 4px solid var(--sapphire);
-	color: var(--base);
+	border-bottom: 2px solid var(--blue);
+	color: var(--mantle);
 	font-weight: 600;
-	font-family: var(--font-sans-serif);
-	text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.4);
-	font-size: 15px;
+	font-family: var(--font-mono);
 	text-align: left;
 	text-indent: 5px;
-	box-shadow: 0px 3px 0px 0px rgba(0, 0, 0, 0.2);
 	cursor: pointer;
-
 	display: block;
 	margin: 0 auto;
 	margin-bottom: 20px;
@@ -108,23 +103,6 @@
 	box-shadow: 0px 2px 0px 0px rgba(0, 0, 0, 0.2);
 	top: 1px;
 }
-
-.hbe-button:after {
-	content: "";
-	width: 0;
-	height: 0;
-	display: block;
-	border-top: 20px solid var(--sapphire);
-	border-bottom: 20px solid var(--sapphire);
-	border-left: 16px solid transparent;
-	border-right: 20px solid var(--sapphire);
-	position: absolute;
-	opacity: 0.6;
-	right: 0;
-	top: 0;
-	border-radius: 0 5px 5px 0;
-}
-/* hbe button in post page */
 
 /* default theme {{{ */
 .hbe-input-default {
