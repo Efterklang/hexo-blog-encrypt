@@ -9,7 +9,6 @@ const defaultConfig = {
 	abstract:
 		"Here's something encrypted, password is required to continue reading.",
 	message: "Hey, password is required here.",
-	theme: "default",
 	wrong_pass_message:
 		"Oh, this is an invalid password. Check and try again, please.",
 	wrong_hash_message:
@@ -26,8 +25,6 @@ const knownPrefix = "<hbe-prefix></hbe-prefix>";
 
 // disable log
 var silent = false;
-// use default theme
-var theme = "default";
 
 hexo.extend.filter.register(
 	"after_post_render",
@@ -73,30 +70,20 @@ hexo.extend.filter.register(
 		// Let's rock n roll
 		const config = Object.assign(defaultConfig, hexo.config.encrypt, data);
 		silent = config.silent;
-		theme = config.theme.trim().toLowerCase();
 
-		// deprecate the template keyword
-		if (config.template) {
-			dlog(
-				"warn",
-				'Looks like you use a deprecated property "template" to set up template, consider to use "theme"? See https://github.com/D0n9X1n/hexo-blog-encrypt#encrypt-theme',
-			);
-		}
-
-		// read theme from file
 		const template = fs
-			.readFileSync(path.resolve(__dirname, `./lib/hbe.${theme}.html`))
+			.readFileSync(path.resolve(__dirname, "./lib/hbe.xray.html"))
 			.toString();
 
 		if (tagUsed === false) {
 			dlog(
 				"info",
-				`hexo-blog-encrypt: encrypting "${data.title.trim()}" based on the password configured in Front-matter with theme: ${theme}.`,
+				`hexo-blog-encrypt: encrypting "${data.title.trim()}" based on the password configured in Front-matter.`,
 			);
 		} else {
 			dlog(
 				"info",
-				`hexo-blog-encrypt: encrypting "${data.title.trim()}" based on Tag: "${tagUsed}" with theme ${theme}.`,
+				`hexo-blog-encrypt: encrypting "${data.title.trim()}" based on Tag: "${tagUsed}".`,
 			);
 		}
 
